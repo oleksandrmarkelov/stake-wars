@@ -96,8 +96,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 
 cd /datadrive
-sudo mkdir nearval
-sudo chmod 755 nearval
+sudo mkdir -p 755nearval
 sudo chown nearval:nearval nearval
 cd nearval
 
@@ -121,7 +120,13 @@ near login
 near generate-key <pool_id>
 cp ~/.near-credentials/shardnet/YOUR_WALLET.json /datadrive/nearval/.near/validator_key.json
 target/release/neard --home /datadrive/nearval/.near run
+
+near call factory.shardnet.near create_staking_pool '{"staking_pool_id": "<pool id>", "owner_id": "<accountId>", "stake_public_key": "<public key>", "reward_fee_fraction": {"numerator": 5, "denominator": 100}, "code_hash":"DD428g9eqLL8fWUxv8QSpVFzyHi1Qd16P8ephYCTmMSZ"}' --accountId="<accountId>" --amount=30 --gas=300000000000000
+near call <pool_name> update_reward_fee_fraction '{"reward_fee_fraction": {"numerator": 1, "denominator": 100}}' --accountId <account_id> --gas=300000000000000
 ```
+
+## Pricing
+The server cost is 0.164 CHF per hour which is approx. 118 CHF per month. 
 
 
 
