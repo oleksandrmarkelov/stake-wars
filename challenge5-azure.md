@@ -79,7 +79,7 @@ According to Stake Wars instructions (Challenge 001, 002, 003 and 004) setup the
 
 Important note: The validator needs to be installed into data disk (mounted under /datadrive). The OS drive is limited to 32 GB and must not be used for installation. Therefore: clone nearcore and init home folder into /datadrive.
 
-Below is the list of instructions to setup validator into /datadrive/nearval/ folder
+Below is the list of instructions to setup validator into /datadrive/nearval/ folder for nearval user
 ```
 sudo apt update && sudo apt upgrade -y
 curl -sL https://deb.nodesource.com/setup_18.x | sudo -E bash -  
@@ -96,7 +96,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 
 cd /datadrive
-sudo mkdir -p 755nearval
+sudo mkdir -p 755 nearval
 sudo chown nearval:nearval nearval
 cd nearval
 
@@ -126,7 +126,10 @@ near call <pool_name> update_reward_fee_fraction '{"reward_fee_fraction": {"nume
 ```
 
 ## Pricing
-The server cost is 0.164 CHF per hour which is approx. 118 CHF per month. 
+The server cost is 0.164 CHF per hour, in addition to storage, IP address, and virtual network. which is approx. 220 USD per month. 
+
+![image](https://user-images.githubusercontent.com/63374230/179889228-d4bba662-bea9-4570-b72c-771761a20da6.png)
+
 
 
 
